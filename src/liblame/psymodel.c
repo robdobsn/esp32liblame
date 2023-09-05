@@ -1464,7 +1464,7 @@ int L3psycho_anal_vbr(lame_internal_flags * gfc,
                   const sample_t * const buffer[2], int gr_out,
                   III_psy_ratio masking_ratio[2][2],
                   III_psy_ratio masking_MS_ratio[2][2],
-                  FLOAT percep_entropy[2], FLOAT percep_MS_entropy[2],
+                  FLOAT percep_entropy[4], FLOAT percep_MS_entropy[2],
                   FLOAT energy[4], int blocktype_d[2])
 {
     DEBUGF(gfc,__FUNCTION__);

@@ -1539,8 +1539,11 @@ VBR_old_iteration_loop(lame_internal_flags * gfc, const FLOAT pe[2][2],
     int     ch, gr, analog_silence;
     III_side_info_t *const l3_side = &gfc->l3_side;
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstringop-overflow"
     analog_silence = VBR_old_prepare(gfc, pe, ms_ener_ratio, ratio,
                                      data->l3_xmin, frameBits, min_bits, max_bits, bands);
+#pragma GCC diagnostic pop
 
     /*---------------------------------*/
     for (;;) {
@@ -1708,7 +1711,10 @@ VBR_new_iteration_loop(lame_internal_flags * gfc, const FLOAT pe[2][2],
 
     memset(data->xrpow, 0, sizeof(data->xrpow));
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstringop-overflow"
     analog_silence = VBR_new_prepare(gfc, pe, ratio, data->l3_xmin, frameBits, max_bits, &pad);
+#pragma GCC diagnostic pop
 
     for (gr = 0; gr < cfg->mode_gr; gr++) {
         for (ch = 0; ch < cfg->channels_out; ch++) {

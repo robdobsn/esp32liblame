@@ -105,11 +105,11 @@ typedef VOLATILE union {
 #  define XRPOW_FTOI(src,dest) ((dest) = (int)(src))
 #endif
 
-static int const MAGIC_INT = MAGIC_INT_def;
+// static int const MAGIC_INT = MAGIC_INT_def;
 #ifndef USE_HIRO_IEEE754_HACK
 static DOUBLEX const ROUNDFAC = ROUNDFAC_def;
 #endif
-static DOUBLEX const MAGIC_FLOAT = MAGIC_FLOAT_def;
+// static DOUBLEX const MAGIC_FLOAT = MAGIC_FLOAT_def;
 
 
 inline static  float
@@ -1256,8 +1256,8 @@ VBR_encode_frame(lame_internal_flags * gfc, const FLOAT xr34orig[2][2][576],
     SessionConfig_t const *const cfg = &gfc->cfg;
 #if USE_STACK_HACK 
      // defined as static so that memory is allocated only once
-    static int     *sfwork_[2][2] = {0,0,0,0}; //[SFBMAX];
-    static int     *vbrsfmin_[2][2] = {0,0,0,0}; //[SFBMAX];
+    static int     *sfwork_[2][2] = {{0,0},{0,0}}; //[SFBMAX];
+    static int     *vbrsfmin_[2][2] = {{0,0},{0,0}}; //[SFBMAX];
     // allocate SFBMAX arrays
     for (int i=0;i<2;i++){
         for (int j=0;j<2;j++){
